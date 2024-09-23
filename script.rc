@@ -1,0 +1,16 @@
+#!/bin/bash
+
+counter=250
+
+while [ $counter -le 256000 ]
+do
+    gcc -Wall -ansi -pedantic -O2 insertionsort.c sorting.c -o a
+    ./a $counter
+    gcc -Wall -ansi -pedantic -O2 mergesort.c sorting.c -o a
+    ./a $counter
+    gcc -Wall -ansi -pedantic -O2 quicksort.c sorting.c -o a
+    ./a $counter
+    gcc -Wall -ansi -pedantic -O2 heapsort.c sorting.c -o a
+    ./a $counter
+    counter=$((2*$counter))
+done
